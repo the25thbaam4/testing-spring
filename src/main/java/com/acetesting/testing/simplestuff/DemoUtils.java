@@ -4,10 +4,10 @@ import java.util.List;
 
 public class DemoUtils {
 
-    private String academy = "Learn to code";
-    private String academyDuplicate = academy;
-    private String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
-    private List<String> academyInList = List.of("ace", "loffy", "zoro");
+    private final String academy = "Learn to code";
+    private final String academyDuplicate = academy;
+    private final String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
+    private final List<String> academyInList = List.of("ace", "luffy", "zoro");
 
     public List<String> getAcademyInList() {
         return academyInList;
@@ -53,8 +53,8 @@ public class DemoUtils {
         }
         return "Value is greater than or equal to 0";
     }
-
     public void checkTimeout() throws InterruptedException {
+
         System.out.println("I am going to sleep");
         Thread.sleep(2000);
         System.out.println("Sleeping over");
