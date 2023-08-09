@@ -1,14 +1,20 @@
 package com.acetesting.testing.simplestuff;
 
 import jakarta.websocket.OnClose;
+import jdk.jfr.Enabled;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleCalcTest {
 
     @Test
+    @EnabledOnOs(OS.LINUX)
+    @EnabledOnJre(JRE.JAVA_17)
+
    void testAddEqualsAndNotEquals(){
         //Set up
         SimpleCalc simpleCalc = new SimpleCalc();
@@ -24,8 +30,11 @@ public class SimpleCalcTest {
         Assertions.assertNotEquals(unexpected, actual, "2 + 4 cant be 8");
 
     }
-
     @Test
+    @EnabledOnOs({OS.WINDOWS, OS.MAC})
+    @EnabledForJreRange(min=JRE.JAVA_17, max = JRE.JAVA_21)
+
+
     void testSubEqualsAndNotEquals(){
 
         SimpleCalc simpleCalc = new SimpleCalc();
@@ -42,6 +51,7 @@ public class SimpleCalcTest {
     }
 
    @Test
+   @Disabled("Testing annotations")
     void testNullAndNotNull(){
 
         SimpleCalc simpleCalc = new SimpleCalc();
